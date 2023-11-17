@@ -6,8 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Install Dependencies
+        run: npm install
       - name: Build
-        uses: TartanLlama/actions-eleventy@master
+        run: npm run build-ghpages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
