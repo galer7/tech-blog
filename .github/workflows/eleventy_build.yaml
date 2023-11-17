@@ -12,6 +12,8 @@ jobs:
         run: npm run build-ghpages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
+        permissions:
+          contents: write
         with:
           publish_dir: _site
           publish_branch: gh-pages
