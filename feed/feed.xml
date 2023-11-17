@@ -4,12 +4,51 @@
 	<subtitle>Bugs are my own 🐛</subtitle>
 	<link href="https://galer7.github.io/tech-blog/feed/feed.xml" rel="self"/>
 	<link href="https://galer7.github.io/tech-blog/tech-blog/"/>
-	<updated>2018-09-30T00:00:00Z</updated>
+	<updated>2023-11-18T00:00:00Z</updated>
 	<id>https://galer7.github.io/tech-blog/</id>
 	<author>
 		<name>Galer Gabriel</name>
 		<email>gabigaler50@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>How to deploy Eleventy (11ty) on GitHub Pages.</title>
+		<link href="https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/"/>
+		<updated>2023-11-18T00:00:00Z</updated>
+		<id>https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/</id>
+		<content type="html">&lt;p&gt;Just like the title says, this is a post about how to deploy Eleventy (11ty) on GitHub Pages. This website is built with Eleventy and deployed on GitHub Pages, so I thought I&#39;d share how I did it.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-eleventy&quot; tabindex=&quot;-1&quot;&gt;What is Eleventy? &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Eleventy is a static site generator. It&#39;s a tool that takes a bunch of files and turns them into a website. It&#39;s similar to Jekyll, Hugo, and Gatsby. It&#39;s written in JavaScript and is very flexible. It&#39;s also very fast.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-github-pages&quot; tabindex=&quot;-1&quot;&gt;What is GitHub Pages? &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;GitHub Pages is a free service that lets you host a website on GitHub. It&#39;s a great way to host a static website. It&#39;s also a great way to host a website that&#39;s built with Eleventy.&lt;/p&gt;
+&lt;h2 id=&quot;setup-new-repo&quot; tabindex=&quot;-1&quot;&gt;Setup new repo &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;First, we have to use the eleventy-base-blog template to create a new Eleventy project.&lt;/li&gt;
+&lt;li&gt;After finishing the new repo setup, make sure to clone the repo locally&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Great! Now you have a GitHub repo for your new blog! Let&#39;s go back to your IDE and start editing the files.&lt;/p&gt;
+&lt;p&gt;First, let&#39;s clean up the &lt;code&gt;package.json&lt;/code&gt; file to reflect the new project name and description:&lt;/p&gt;
+&lt;script src=&quot;https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F11ty%2Feleventy-base-blog%2Fblob%2Fmain%2Fpackage.json%23L1-L12&amp;style=default&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on&quot;&gt;&lt;/script&gt;
+&lt;p&gt;For starters, update the &lt;code&gt;build-ghpages&lt;/code&gt; script to include your repo name in &lt;code&gt;--pathprefix&lt;/code&gt;. Then, update the other attributes like &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;description&lt;/code&gt;, &lt;code&gt;author&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;homepage&lt;/code&gt; to reflect your new project.&lt;/p&gt;
+&lt;p&gt;To see the changes locally, run &lt;code&gt;npm run build-ghpages&lt;/code&gt; and then &lt;code&gt;npm run start&lt;/code&gt;. You should see the site at &lt;code&gt;http://localhost:8080/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Also, make sure to follow the 3 steps from the &lt;a href=&quot;https://eleventy-base-blog.netlify.app/&quot;&gt;demo website&lt;/a&gt; of the eleventy-base-blog template:&lt;/p&gt;
+&lt;p&gt;&lt;picture&gt;&lt;source type=&quot;image/avif&quot; srcset=&quot;https://galer7.github.io/tech-blog/img/IICZRjt27K-1204.avif 1204w&quot;&gt;&lt;source type=&quot;image/webp&quot; srcset=&quot;https://galer7.github.io/tech-blog/img/IICZRjt27K-1204.webp 1204w&quot;&gt;&lt;img alt=&quot;Eleventy base blog steps&quot; loading=&quot;lazy&quot; decoding=&quot;async&quot; src=&quot;https://galer7.github.io/tech-blog/img/IICZRjt27K-1204.png&quot; width=&quot;1204&quot; height=&quot;348&quot;&gt;&lt;/picture&gt;&lt;/p&gt;
+&lt;h2 id=&quot;create-a-new-github-workflow&quot; tabindex=&quot;-1&quot;&gt;Create a new GitHub workflow &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Copy the &lt;code&gt;.github/workflows/gh-pages.yml&lt;/code&gt; below in your new repo, commit and push the changes to the main branch.&lt;/p&gt;
+&lt;script src=&quot;https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fgaler7%2Ftech-blog%2Fblob%2Fmain%2F.github%2Fworkflows%2Feleventy_build.yaml&amp;style=default&amp;type=code&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showFullPath=on&amp;showCopy=on&quot;&gt;&lt;/script&gt;
+&lt;p&gt;The &lt;code&gt;peaceiris/actions-gh-pages@v3&lt;/code&gt; action will build the site and push it to the &lt;code&gt;gh-pages&lt;/code&gt; branch. GitHub Pages will then serve the site from the &lt;code&gt;gh-pages&lt;/code&gt; branch.&lt;/p&gt;
+&lt;h2 id=&quot;commit-and-push-the-changes&quot; tabindex=&quot;-1&quot;&gt;Commit and push the changes &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Commit and push the changes to the main branch. This will trigger the GitHub workflow and build the site. The site will be available at &lt;code&gt;https://&amp;lt;your-github-username&amp;gt;.github.io/&amp;lt;your-repo-name&amp;gt;/&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion&quot; tabindex=&quot;-1&quot;&gt;Conclusion &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;That&#39;s it! You now have a new Eleventy blog hosted on GitHub Pages. You can now start writing blog posts and publish them on your new blog.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot; tabindex=&quot;-1&quot;&gt;References &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Maarten Tibau: &lt;a href=&quot;https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/&quot;&gt;How to deploy your Eleventy website to GitHub Pages with GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;11ty GitHub: &lt;a href=&quot;https://github.com/11ty/eleventy-base-blog&quot;&gt;eleventy-base-blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub workflow file: &lt;a href=&quot;https://github.com/galer7/tech-blog/blob/main/.github/workflows/eleventy_build.yaml&quot;&gt;eleventy_build.yaml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>This is my fourth post.</title>

@@ -60,4 +60,24 @@
 		<loc>https://galer7.github.io/tech-blog/tags/posts-with-two-tags/</loc>
 		<lastmod>2023-11-17</lastmod>
 	</url>
+	
+	<url>
+		<loc>https://galer7.github.io/tech-blog/tags/eleventy/</loc>
+		<lastmod>2023-11-17</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://galer7.github.io/tech-blog/tags/github-pages/</loc>
+		<lastmod>2023-11-17</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://galer7.github.io/tech-blog/tags/github-actions/</loc>
+		<lastmod>2023-11-17</lastmod>
+	</url>
+	
+	<url>
+		<loc>https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/</loc>
+		<lastmod>2023-11-18</lastmod>
+	</url>
 </urlset>

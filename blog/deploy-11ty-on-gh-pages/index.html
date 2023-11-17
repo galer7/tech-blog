@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>This is my fourth post.</title>
-		<meta name="description" content="This is a post on My Blog about touchpoints and circling wagons.">
+		<title>How to deploy Eleventy (11ty) on GitHub Pages.</title>
+		<meta name="description" content="This is a post on my tech blog about how to deploy Eleventy (11ty) on GitHub Pages.">
 		<link rel="alternate" href="/tech-blog/feed/feed.xml" type="application/atom+xml" title="My Tech Blog">
 		<link rel="alternate" href="/tech-blog/feed/feed.json" type="application/json" title="My Tech Blog">
 		
@@ -465,26 +465,54 @@ h2 + .header-anchor {
 
 		<main id="skip">
 			
-<h1>This is my fourth post.</h1>
+<h1>How to deploy Eleventy (11ty) on GitHub Pages.</h1>
 
 <ul class="post-metadata">
-	<li><time datetime="2018-09-30">30 September 2018</time></li>
-	<li><a href="/tech-blog/tags/second-tag/" class="post-tag">second tag</a></li>
+	<li><time datetime="2023-11-18">18 November 2023</time></li>
+	<li><a href="/tech-blog/tags/eleventy/" class="post-tag">eleventy</a>, </li>
+	<li><a href="/tech-blog/tags/github-pages/" class="post-tag">github pages</a>, </li>
+	<li><a href="/tech-blog/tags/github-actions/" class="post-tag">github actions</a></li>
 </ul>
 
-<p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</p>
-<p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
-<p><picture><source type="image/avif" srcset="/tech-blog/img/IdthKOzqFA-350.avif 350w"><source type="image/webp" srcset="/tech-blog/img/IdthKOzqFA-350.webp 350w"><img alt="A possum parent and two possum kids hanging from the iconic red balloon" loading="lazy" decoding="async" src="/tech-blog/img/IdthKOzqFA-350.png" width="350" height="685"></picture></p>
-<h2 id="section-header" tabindex="-1">Section Header <a class="header-anchor" href="#section-header">#</a></h2>
-<p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
+<p>Just like the title says, this is a post about how to deploy Eleventy (11ty) on GitHub Pages. This website is built with Eleventy and deployed on GitHub Pages, so I thought I'd share how I did it.</p>
+<h2 id="what-is-eleventy" tabindex="-1">What is Eleventy? <a class="header-anchor" href="#what-is-eleventy">#</a></h2>
+<p>Eleventy is a static site generator. It's a tool that takes a bunch of files and turns them into a website. It's similar to Jekyll, Hugo, and Gatsby. It's written in JavaScript and is very flexible. It's also very fast.</p>
+<h2 id="what-is-github-pages" tabindex="-1">What is GitHub Pages? <a class="header-anchor" href="#what-is-github-pages">#</a></h2>
+<p>GitHub Pages is a free service that lets you host a website on GitHub. It's a great way to host a static website. It's also a great way to host a website that's built with Eleventy.</p>
+<h2 id="setup-new-repo" tabindex="-1">Setup new repo <a class="header-anchor" href="#setup-new-repo">#</a></h2>
+<ul>
+<li>First, we have to use the eleventy-base-blog template to create a new Eleventy project.</li>
+<li>After finishing the new repo setup, make sure to clone the repo locally</li>
+</ul>
+<p>Great! Now you have a GitHub repo for your new blog! Let's go back to your IDE and start editing the files.</p>
+<p>First, let's clean up the <code>package.json</code> file to reflect the new project name and description:</p>
+<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2F11ty%2Feleventy-base-blog%2Fblob%2Fmain%2Fpackage.json%23L1-L12&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+<p>For starters, update the <code>build-ghpages</code> script to include your repo name in <code>--pathprefix</code>. Then, update the other attributes like <code>name</code>, <code>description</code>, <code>author</code>, <code>repository</code> and <code>homepage</code> to reflect your new project.</p>
+<p>To see the changes locally, run <code>npm run build-ghpages</code> and then <code>npm run start</code>. You should see the site at <code>http://localhost:8080/</code>.</p>
+<p>Also, make sure to follow the 3 steps from the <a href="https://eleventy-base-blog.netlify.app/">demo website</a> of the eleventy-base-blog template:</p>
+<p><picture><source type="image/avif" srcset="/tech-blog/img/IICZRjt27K-1204.avif 1204w"><source type="image/webp" srcset="/tech-blog/img/IICZRjt27K-1204.webp 1204w"><img alt="Eleventy base blog steps" loading="lazy" decoding="async" src="/tech-blog/img/IICZRjt27K-1204.png" width="1204" height="348"></picture></p>
+<h2 id="create-a-new-github-workflow" tabindex="-1">Create a new GitHub workflow <a class="header-anchor" href="#create-a-new-github-workflow">#</a></h2>
+<p>Copy the <code>.github/workflows/gh-pages.yml</code> below in your new repo, commit and push the changes to the main branch.</p>
+<script src="https://emgithub.com/embed-v2.js?target=https%3A%2F%2Fgithub.com%2Fgaler7%2Ftech-blog%2Fblob%2Fmain%2F.github%2Fworkflows%2Feleventy_build.yaml&style=default&type=code&showBorder=on&showLineNumbers=on&showFileMeta=on&showFullPath=on&showCopy=on"></script>
+<p>The <code>peaceiris/actions-gh-pages@v3</code> action will build the site and push it to the <code>gh-pages</code> branch. GitHub Pages will then serve the site from the <code>gh-pages</code> branch.</p>
+<h2 id="commit-and-push-the-changes" tabindex="-1">Commit and push the changes <a class="header-anchor" href="#commit-and-push-the-changes">#</a></h2>
+<p>Commit and push the changes to the main branch. This will trigger the GitHub workflow and build the site. The site will be available at <code>https://&lt;your-github-username&gt;.github.io/&lt;your-repo-name&gt;/</code>.</p>
+<h2 id="conclusion" tabindex="-1">Conclusion <a class="header-anchor" href="#conclusion">#</a></h2>
+<p>That's it! You now have a new Eleventy blog hosted on GitHub Pages. You can now start writing blog posts and publish them on your new blog.</p>
+<h2 id="references" tabindex="-1">References <a class="header-anchor" href="#references">#</a></h2>
+<ul>
+<li>Maarten Tibau: <a href="https://maarten.be/blog/20220730/how-to-deploy-your-eleventy-website-to-github-pages-with-github-actions/">How to deploy your Eleventy website to GitHub Pages with GitHub Actions</a></li>
+<li>11ty GitHub: <a href="https://github.com/11ty/eleventy-base-blog">eleventy-base-blog</a></li>
+<li>GitHub workflow file: <a href="https://github.com/galer7/tech-blog/blob/main/.github/workflows/eleventy_build.yaml">eleventy_build.yaml</a></li>
+</ul>
 
-<ul class="links-nextprev"><li>Previous: <a href="/tech-blog/blog/thirdpost/">This is my third post.</a></li><li>Next: <a href="/tech-blog/blog/deploy-11ty-on-gh-pages/">How to deploy Eleventy (11ty) on GitHub Pages.</a></li>
+<ul class="links-nextprev"><li>Previous: <a href="/tech-blog/blog/fourthpost/">This is my fourth post.</a></li>
 </ul>
 
 		</main>
 
 		<footer></footer>
 
-		<!-- Current page: /tech-blog/blog/fourthpost/ -->
+		<!-- Current page: /tech-blog/blog/deploy-11ty-on-gh-pages/ -->
 	</body>
 </html>
