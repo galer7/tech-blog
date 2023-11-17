@@ -9,10 +9,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: Build
-        uses: TartanLlama/actions-eleventy@master
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          install_dependencies: true
+          node-version: "14.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build-ghpages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
