@@ -3,6 +3,7 @@
 	"version": "8.0.0",
 	"description": "Bugs are my own 🐛",
 	"scripts": {
+		"dev": "npx @11ty/eleventy --watch",
 		"build": "npx @11ty/eleventy",
 		"build-ghpages": "npx @11ty/eleventy --pathprefix=/tech-blog/",
 		"start": "npx @11ty/eleventy --serve --quiet",
