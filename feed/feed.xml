@@ -4,7 +4,7 @@
 	<subtitle>Bugs are my own 🐛</subtitle>
 	<link href="https://galer7.github.io/tech-blog/feed/feed.xml" rel="self"/>
 	<link href="https://galer7.github.io/tech-blog/tech-blog/"/>
-	<updated>2023-11-18T00:00:00Z</updated>
+	<updated>2023-11-17T21:00:00Z</updated>
 	<id>https://galer7.github.io/tech-blog/</id>
 	<author>
 		<name>Galer Gabriel</name>
@@ -14,7 +14,7 @@
 	<entry>
 		<title>How to deploy Eleventy (11ty) on GitHub Pages</title>
 		<link href="https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/"/>
-		<updated>2023-11-18T00:00:00Z</updated>
+		<updated>2023-11-17T21:00:00Z</updated>
 		<id>https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/</id>
 		<content type="html">&lt;p&gt;Just like the title says, this is a post about how to deploy Eleventy (11ty) on GitHub Pages. This website is built with Eleventy and deployed on GitHub Pages, so I thought I&#39;d share how I did it.&lt;/p&gt;
 &lt;h2 id=&quot;what-is-eleventy&quot; tabindex=&quot;-1&quot;&gt;What is Eleventy? &lt;a class=&quot;header-anchor&quot; href=&quot;https://galer7.github.io/tech-blog/blog/deploy-11ty-on-gh-pages/&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
