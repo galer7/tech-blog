@@ -6,6 +6,6 @@ module.exports = {
 	author: {
 		name: "Galer Gabriel",
 		email: "gabigaler50@gmail.com",
-		url: "https://github.com/galer7"
-	}
-}
+		url: "https://github.com/galer7",
+	},
+};
