@@ -1,7 +1,7 @@
 ---
 title: How to deploy Eleventy (11ty) on GitHub Pages
 description: This is a post on my tech blog about how to deploy Eleventy (11ty) on GitHub Pages
-date: 2023-11-18
+date: 2023-11-17 21:00:00
 tags:
   - eleventy
   - github pages
